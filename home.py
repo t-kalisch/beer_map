@@ -17,13 +17,19 @@ st.write(df)
 
 st.map(data = df)
 
+def check_in(street, city, country)
+  geolocator = Nominatim(user_agent="GTA Lookup")
+  geocode = RateLimiter(geolocator.geocode, min_delay_seconds=1)
+  location = geolocator.geocode(street+", "+city+", "+country)
 
-
+  lat = location.latitude
+  lon = location.longitude
+  st.write(lat, lon)
 
 street = st.sidebar.text_input("Street", "75 Bay Street")
 city = st.sidebar.text_input("City", "Toronto")
 country = st.sidebar.text_input("Country", "Canada")
-input = st.sidebar.button("Check in", on_click=check_in, args=(street, city, country)
+input = st.sidebar.button("Check in", on_click=check_in, args=(street, city, country))
 
 
 geolocator = Nominatim(user_agent="GTA Lookup")

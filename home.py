@@ -27,7 +27,7 @@ def check_in(street, city, country):
   lon = location.longitude
   st.write(lat, lon)
 
-  new = [lat, lon}
+  new = [lat, lon]
   
   new = pd.DataFrame(columns=df.columns, data=[new])
   # Overwrite original dataframe

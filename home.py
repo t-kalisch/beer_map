@@ -13,7 +13,7 @@ from geopy.extra.rate_limiter import RateLimiter
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
 
-df = conn.read(ttl=0)
+df = conn.read(ttl="10m")
 st.write(df)
 # Print results
 st.map(data = df)
@@ -29,7 +29,7 @@ def check_in(street, city, country, df, conn):
 
   df = df.append({'lat': lat, 'lon': lon}, ignore_index=True)
   st.write(df)
-  conn.clear(worksheet=0)
+  conn.clear(worksheet="0")
   #st.cache_data.clear()
 
 street = st.sidebar.text_input("Street")

@@ -18,7 +18,7 @@ st.write(df)
 # Print results
 st.map(data = df)
 
-def check_in(street, city, country):
+def check_in(street, city, country, df):
   geolocator = Nominatim(user_agent="GTA Lookup")
   geocode = RateLimiter(geolocator.geocode, min_delay_seconds=1)
   location = geolocator.geocode(street+", "+city+", "+country)
@@ -26,19 +26,18 @@ def check_in(street, city, country):
   lat = location.latitude
   lon = location.longitude
   st.write(lat, lon)
-  data = df.to_numpy()
   data.append([lat, lon])
   st.write(data)
   new = {'lat': lat, 'lon': lon}
   # Overwrite original dataframe
-  df = df.append({'lat': str(lat), 'lon': str(lon)}, ignore_index=True)
+  df = df.append({'lat': lat, 'lon': lon}, ignore_index=True)
   df = conn.update(worksheet="coord", data=df,)
   st.cache_data.clear()
 
 street = st.sidebar.text_input("Street")
 city = st.sidebar.text_input("City")
 country = st.sidebar.text_input("Country")
-input = st.sidebar.button("Check in", on_click=check_in, args=(street, city, country))
+input = st.sidebar.button("Check in", on_click=check_in, args=(street, city, country, df))
 
 
 geolocator = Nominatim(user_agent="GTA Lookup")

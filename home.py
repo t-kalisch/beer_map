@@ -36,7 +36,7 @@ if input:
 
   df = df.append({'lat': lat, 'lon': lon}, ignore_index=True)
   st.write(df)
-  conn.clear(worksheet="0")
+  conn.clear()
   #st.cache_data.clear()
 
 geolocator = Nominatim(user_agent="GTA Lookup")

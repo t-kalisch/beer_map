@@ -2,6 +2,7 @@ import streamlit as st
 import geopandas as gpd
 import geopy
 import pandas as pd
+import pandasql as pdsql
 from streamlit_gsheets import GSheetsConnection
 
 from geopy.geocoders import Nominatim

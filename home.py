@@ -28,7 +28,7 @@ def check_in(street, city, country):
   st.write(lat, lon)
   new = {'lat': lat, 'lon': lon}
   # Overwrite original dataframe
-  df = df.append({'lat': lat, 'lon': lon}, ignore_index=True)
+  df = df.append({'lat': str(lat), 'lon': str(lon)}, ignore_index=True)
   df = conn.update(worksheet="coord", data=df,)
   st.cache_data.clear()
 

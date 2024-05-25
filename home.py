@@ -27,8 +27,8 @@ def check_in(street, city, country):
   lon = location.longitude
   st.write(lat, lon)
 
-  data ={"lat": lat, "lon": lon}
-  new_df = update_dataframe(df, pd.DataFrame([data]))
+  #data ={"lat": lat, "lon": lon}
+  df = df._set_value(index=len(df), lat=lat, lon=10.0)
   st.write(new_df)
   conn.update(data=new_df)
 

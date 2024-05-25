@@ -17,7 +17,7 @@ df = conn.read(ttl=0)
 st.write(df)
 # Print results
 data = df.to_numpy()
-st.write(data)
+st.markdown(data)
 st.map(data = df)
 
 def check_in(street, city, country):

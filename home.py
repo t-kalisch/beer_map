@@ -29,7 +29,7 @@ def check_in(street, city, country, df, conn):
 
   df = df.append({'lat': lat, 'lon': lon}, ignore_index=True)
   st.write(df)
-  df = conn.update(worksheet="0",data=df)
+  df = conn.update(worksheet=0,data=df)
   #st.cache_data.clear()
 
 street = st.sidebar.text_input("Street")

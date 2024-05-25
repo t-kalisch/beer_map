@@ -4,10 +4,9 @@ from streamlit_gsheets import GSheetsConnection
 
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
-st.write(conn)
-st.help(conn)
+
 df = conn.read()
-st.markdown(df)
+st.write(df)
 # Print results.
 for row in df.itertuples():
     st.write(f"{row.name} has a :{row.pet}:")

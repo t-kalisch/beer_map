@@ -3,3 +3,4 @@ st-gsheets-connection
 geopandas
 pandas
 geopy
+pandasql

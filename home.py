@@ -9,4 +9,4 @@ df = conn.read(ttl=0)
 st.write(df)
 # Print results.
 
-st.map()
+st.map(data = df)

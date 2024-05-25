@@ -29,7 +29,7 @@ def check_in(street, city, country):
 
   # Overwrite original dataframe
   df.loc[len(df.index)] = [lat,lon] 
-  conn.update(data=ndf)
+  conn.update(data=df)
 
 
 street = st.sidebar.text_input("Street")

@@ -22,13 +22,12 @@ st.map(data = df)
 
 street = st.sidebar.text_input("Street", "75 Bay Street")
 city = st.sidebar.text_input("City", "Toronto")
-province = st.sidebar.text_input("Province", "Ontario")
 country = st.sidebar.text_input("Country", "Canada")
 
 geolocator = Nominatim(user_agent="GTA Lookup")
 geocode = RateLimiter(geolocator.geocode, min_delay_seconds=1)
 location = geolocator.geocode(street+", "+city+", "+province+", "+country)
-
+st.write(location)
 lat = location.latitude
 lon = location.longitude
 

@@ -17,7 +17,7 @@ st.write(df)
 
 st.map(data = df)
 
-def check_in(street, city, country)
+def check_in(street, city, country):
   geolocator = Nominatim(user_agent="GTA Lookup")
   geocode = RateLimiter(geolocator.geocode, min_delay_seconds=1)
   location = geolocator.geocode(street+", "+city+", "+country)

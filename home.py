@@ -29,8 +29,8 @@ def check_in(street, city, country):
 
   # Overwrite original dataframe
   df.loc[len(df.index)] = [lat,lon] 
-  conn.update(data=df)
-
+  df = conn.update(worksheet="coord", data=df,)
+  st.cache_data.clear()
 
 street = st.sidebar.text_input("Street")
 city = st.sidebar.text_input("City")

@@ -2,6 +2,7 @@ import streamlit as st
 import geopandas as gpd
 import geopy
 import pandas as pd
+import numpy
 import pandasql as pdsql
 from streamlit_gsheets import GSheetsConnection
 
@@ -15,7 +16,8 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 df = conn.read(ttl=0)
 st.write(df)
 # Print results
-
+data = df.to_numpy()
+st.write(data)
 st.map(data = df)
 
 def check_in(street, city, country):

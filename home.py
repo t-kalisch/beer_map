@@ -26,9 +26,9 @@ def check_in(street, city, country):
   lon = location.longitude
   st.write(lat, lon)
 
-street = st.sidebar.text_input("Street", "75 Bay Street")
-city = st.sidebar.text_input("City", "Toronto")
-country = st.sidebar.text_input("Country", "Canada")
+street = st.sidebar.text_input("Street")
+city = st.sidebar.text_input("City")
+country = st.sidebar.text_input("Country")
 input = st.sidebar.button("Check in", on_click=check_in, args=(street, city, country))
 
 

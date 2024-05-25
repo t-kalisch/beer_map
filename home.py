@@ -23,6 +23,8 @@ st.map(data = df)
 street = st.sidebar.text_input("Street", "75 Bay Street")
 city = st.sidebar.text_input("City", "Toronto")
 country = st.sidebar.text_input("Country", "Canada")
+input = st.sidebar.button("Check in", on_click=check_in, args=(street, city, country)
+
 
 geolocator = Nominatim(user_agent="GTA Lookup")
 geocode = RateLimiter(geolocator.geocode, min_delay_seconds=1)

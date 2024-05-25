@@ -18,7 +18,7 @@ st.write(df)
 # Print results
 st.map(data = df)
 
-def check_in(street, city, country, df):
+def check_in(street, city, country, df, conn):
   geolocator = Nominatim(user_agent="GTA Lookup")
   geocode = RateLimiter(geolocator.geocode, min_delay_seconds=1)
   location = geolocator.geocode(street+", "+city+", "+country)
@@ -35,7 +35,7 @@ def check_in(street, city, country, df):
 street = st.sidebar.text_input("Street")
 city = st.sidebar.text_input("City")
 country = st.sidebar.text_input("Country")
-input = st.sidebar.button("Check in", on_click=check_in, args=(street, city, country, df))
+input = st.sidebar.button("Check in", on_click=check_in, args=(street, city, country, df, conn))
 
 
 geolocator = Nominatim(user_agent="GTA Lookup")

@@ -27,11 +27,8 @@ def check_in(street, city, country, df):
   lon = location.longitude
   st.write(lat, lon)
 
-
-  new = {'lat': lat, 'lon': lon}
-  # Overwrite original dataframe
   df = df.append({'lat': lat, 'lon': lon}, ignore_index=True)
-  df = conn.update(worksheet="coord", data=df,)
+  df = conn.update(data=df,)
   st.cache_data.clear()
 
 street = st.sidebar.text_input("Street")

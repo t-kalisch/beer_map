@@ -26,8 +26,8 @@ def check_in(street, city, country, df):
   lat = location.latitude
   lon = location.longitude
   st.write(lat, lon)
-  data.append([lat, lon])
-  st.write(data)
+
+
   new = {'lat': lat, 'lon': lon}
   # Overwrite original dataframe
   df = df.append({'lat': lat, 'lon': lon}, ignore_index=True)

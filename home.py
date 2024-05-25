@@ -45,3 +45,29 @@ lon = location.longitude
 map_data = pd.DataFrame({'lat': [lat], 'lon': [lon]})
 
 st.map(map_data) 
+
+
+st.write("#### 5. Update Google WorkSheet using DataFrame")
+with st.echo():
+    import streamlit as st
+
+    from streamlit_gsheets import GSheetsConnection
+
+    # Create GSheets connection
+    conn = st.experimental_connection("gsheets", type=GSheetsConnection)
+
+    # Demo Meat DataFrame
+    df = psql.load_meat()
+
+    # click button to update worksheet
+    # This is behind a button to avoid exceeding Google API Quota
+    if st.button("Update worksheet"):
+        df = conn.update(
+            worksheet="Example 1",
+            data=df,
+        )
+        st.cache_data.clear()
+        st.experimental_rerun()
+
+    # Display our Spreadsheet as st.dataframe
+    st.dataframe(df.head(10))

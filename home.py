@@ -29,8 +29,7 @@ def check_in(street, city, country):
 
   #data ={"lat": lat, "lon": lon}
   df = df._set_value(index=len(df), lat=lat, lon=10.0)
-  st.write(new_df)
-  conn.update(data=new_df)
+  conn.update(data=ndf)
 
 
 street = st.sidebar.text_input("Street")

@@ -27,9 +27,9 @@ def check_in(street, city, country):
   lon = location.longitude
   st.write(lat, lon)
 
-  coords ={"lat": lat, "lon": lon}
-  st.write(coords)
-  new = pd.DataFrame(columns=df.columns, data=coords)
+  new = [lat, lon}
+  
+  new = pd.DataFrame(columns=df.columns, data=[new])
   # Overwrite original dataframe
   df = pd.concat([df, new], axis=0)
   conn.update(data=ndf)

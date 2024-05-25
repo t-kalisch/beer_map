@@ -18,7 +18,14 @@ st.write(df)
 # Print results
 st.map(data = df)
 
-def check_in(street, city, country, df, conn):
+#def check_in(street, city, country, df, conn):
+
+
+street = st.sidebar.text_input("Street")
+city = st.sidebar.text_input("City")
+country = st.sidebar.text_input("Country")
+input = st.sidebar.button("Check in", key="input")#, on_click=check_in, args=(street, city, country, df, conn))
+if input:
   geolocator = Nominatim(user_agent="GTA Lookup")
   geocode = RateLimiter(geolocator.geocode, min_delay_seconds=1)
   location = geolocator.geocode(street+", "+city+", "+country)
@@ -29,14 +36,8 @@ def check_in(street, city, country, df, conn):
 
   df = df.append({'lat': lat, 'lon': lon}, ignore_index=True)
   st.write(df)
-  conn.clear(spreadsheet="https://docs.google.com/spreadsheets/d/1NU_2xb8FZRroCiKZpkkER79y5g-BJ-tnIYui5kgzv5M/edit#gid=0",worksheet="0")
+  conn.clear(worksheet="0")
   #st.cache_data.clear()
-
-street = st.sidebar.text_input("Street")
-city = st.sidebar.text_input("City")
-country = st.sidebar.text_input("Country")
-input = st.sidebar.button("Check in", on_click=check_in, args=(street, city, country, df, conn))
-
 
 geolocator = Nominatim(user_agent="GTA Lookup")
 geocode = RateLimiter(geolocator.geocode, min_delay_seconds=1)

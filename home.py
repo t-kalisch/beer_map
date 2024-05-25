@@ -16,8 +16,6 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 df = conn.read(ttl=0)
 st.write(df)
 # Print results
-data = df.to_numpy()
-print(data)
 st.map(data = df)
 
 def check_in(street, city, country):
@@ -28,6 +26,9 @@ def check_in(street, city, country):
   lat = location.latitude
   lon = location.longitude
   st.write(lat, lon)
+  data = df.to_numpy()
+  data.append([lat, lon])
+  st.write(data)
   new = {'lat': lat, 'lon': lon}
   # Overwrite original dataframe
   df = df.append({'lat': str(lat), 'lon': str(lon)}, ignore_index=True)

@@ -26,6 +26,9 @@ def check_in(street, city, country):
   lon = location.longitude
   st.write(lat, lon)
 
+  df = conn.update(data=df)
+
+
 street = st.sidebar.text_input("Street")
 city = st.sidebar.text_input("City")
 country = st.sidebar.text_input("Country")

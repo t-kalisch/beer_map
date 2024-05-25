@@ -58,7 +58,7 @@ with st.echo():
     conn = st.experimental_connection("gsheets", type=GSheetsConnection)
 
     # Demo Meat DataFrame
-    df = psql.load_meat()
+    df = [1.4,76]
 
     # click button to update worksheet
     # This is behind a button to avoid exceeding Google API Quota

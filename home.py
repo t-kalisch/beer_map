@@ -26,7 +26,7 @@ country = st.sidebar.text_input("Country", "Canada")
 
 geolocator = Nominatim(user_agent="GTA Lookup")
 geocode = RateLimiter(geolocator.geocode, min_delay_seconds=1)
-location = geolocator.geocode(street+", "+city+", "+province+", "+country)
+location = geolocator.geocode(street+", "+city+", "+country)
 st.write(location)
 lat = location.latitude
 lon = location.longitude

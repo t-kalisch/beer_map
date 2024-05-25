@@ -27,7 +27,10 @@ def check_in(street, city, country):
   lon = location.longitude
   st.write(lat, lon)
 
-  conn.update(data=[lat,lon])
+  data ={"lat": lat, "lon", lon}
+  new_df = update_dataframe(df, pd.DataFrame([data]))
+  st.write(new_df)
+  conn.update(data=new_df)
 
 
 street = st.sidebar.text_input("Street")
@@ -46,29 +49,3 @@ lon = location.longitude
 map_data = pd.DataFrame({'lat': [lat], 'lon': [lon]})
 
 st.map(map_data) 
-
-
-st.write("#### 5. Update Google WorkSheet using DataFrame")
-with st.echo():
-    import streamlit as st
-
-    from streamlit_gsheets import GSheetsConnection
-
-    # Create GSheets connection
-    conn = st.experimental_connection("gsheets", type=GSheetsConnection)
-
-    # Demo Meat DataFrame
-    df = [1.4,76]
-
-    # click button to update worksheet
-    # This is behind a button to avoid exceeding Google API Quota
-    if st.button("Update worksheet"):
-        df = conn.update(
-            worksheet="Example 1",
-            data=df,
-        )
-        st.cache_data.clear()
-        st.experimental_rerun()
-
-    # Display our Spreadsheet as st.dataframe
-    st.dataframe(df.head(10))

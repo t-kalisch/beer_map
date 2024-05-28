@@ -43,8 +43,8 @@ geolocator = Nominatim(user_agent="GTA Lookup")
 geocode = RateLimiter(geolocator.geocode, min_delay_seconds=1)
 location = geolocator.geocode(street+", "+city+", "+country)
 st.write(location)
-lat = location.latitude
-lon = location.longitude
+#lat = location.latitude
+#lon = location.longitude
 
 map_data = pd.DataFrame({'lat': [lat], 'lon': [lon]})
 

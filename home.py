@@ -46,6 +46,6 @@ st.write(location)
 #lat = location.latitude
 #lon = location.longitude
 
-map_data = pd.DataFrame({'lat': [lat], 'lon': [lon]})
+#map_data = pd.DataFrame({'lat': [lat], 'lon': [lon]})
 
-st.map(map_data) 
+#st.map(map_data) 

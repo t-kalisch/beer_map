@@ -4,3 +4,4 @@ geopandas
 pandas
 geopy
 pandasql
+git+https://github.com/streamlit/gsheets-connection

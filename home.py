@@ -13,7 +13,7 @@ from geopy.extra.rate_limiter import RateLimiter
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
 
-df = conn.read(ttl=0)
+df = conn.read(ttl="1m")
 st.write(df)
 
 df = df.dropna()
@@ -30,7 +30,7 @@ country = st.sidebar.text_input("Country")
 input = st.sidebar.button("Check in", key="input")#, on_click=check_in, args=(street, city, country, df, conn))
 if input:
   geolocator = Nominatim(user_agent="GTA Lookup")
-  geocode = RateLimiter(geolocator.geocode, min_delay_seconds=1)
+  geocode = RateLimiter(geolocator.geocode, min_delay_seconds=10)
   location = geolocator.geocode(street+", "+city+", "+country)
 
   lat = location.latitude
@@ -42,10 +42,10 @@ if input:
   conn.update(data=df)
   #st.cache_data.clear()
 
-geolocator = Nominatim(user_agent="GTA Lookup")
-geocode = RateLimiter(geolocator.geocode, min_delay_seconds=1)
-location = geolocator.geocode(street+", "+city+", "+country)
-st.write(location)
+#geolocator = Nominatim(user_agent="GTA Lookup")
+#geocode = RateLimiter(geolocator.geocode, min_delay_seconds=10)
+#location = geolocator.geocode(street+", "+city+", "+country)
+#st.write(location)
 #lat = location.latitude
 #lon = location.longitude
 

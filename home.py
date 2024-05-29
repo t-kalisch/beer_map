@@ -9,6 +9,8 @@ from streamlit_gsheets import GSheetsConnection
 from geopy.geocoders import Nominatim
 from geopy.extra.rate_limiter import RateLimiter
 
+import plotly.express as px
+
 
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
@@ -41,13 +43,15 @@ if input:
   conn.update(data=df)
   #st.cache_data.clear()
 
-#geolocator = Nominatim(user_agent="GTA Lookup")
-#geocode = RateLimiter(geolocator.geocode, min_delay_seconds=10)
-#location = geolocator.geocode(street+", "+city+", "+country)
-#st.write(location)
-#lat = location.latitude
-#lon = location.longitude
+fig = px.scatter_geo(
+    data_frame=df,
+    color="color_column",
+    lon="lon",
+    lat="lat",
+    projection="natural earth",
+    hover_name="hover_column",
+    size="size_column",  # <-- Set the column name for size
+    height=800,
+)
 
-#map_data = pd.DataFrame({'lat': [lat], 'lon': [lon]})
-
-#st.map(map_data) 
+st.plotly_chart(fig, use_container_width=True)

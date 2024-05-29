@@ -45,12 +45,12 @@ if input:
 
 fig = px.scatter_geo(
     data_frame=df,
-    color="color_column",
+    #color="color_column",
     lon="lon",
     lat="lat",
-    projection="natural earth",
-    hover_name="hover_column",
-    size="size_column",  # <-- Set the column name for size
+    #projection="natural earth",
+    #hover_name="hover_column",
+    size="size",  # <-- Set the column name for size
     height=800,
 )
 

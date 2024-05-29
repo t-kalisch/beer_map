@@ -30,7 +30,7 @@ country = st.sidebar.text_input("Country")
 input = st.sidebar.button("Check in", key="input")#, on_click=check_in, args=(street, city, country, df, conn))
 if input:
   geolocator = Nominatim(user_agent="GTA Lookup")
-  geocode = RateLimiter(geolocator.geocode, min_delay_seconds=10)
+  geocode = RateLimiter(geolocator.geocode, min_delay_seconds=1)
   location = geolocator.geocode(street+", "+city+", "+country)
 
   lat = location.latitude

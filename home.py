@@ -14,6 +14,8 @@ from geopy.extra.rate_limiter import RateLimiter
 conn = st.connection("gsheets", type=GSheetsConnection)
 
 df = conn.read(ttl="10m")
+st.write(df)
+print(df)
 # Print results
 st.map(data = df)
 

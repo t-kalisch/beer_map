@@ -16,6 +16,9 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 df = conn.read(ttl=0)
 st.write(df)
 print(df)
+
+for row in df.itertuples():
+    st.write(f"{row.name} has a :{row.pet}:")
 # Print results
 st.map(data = df)
 

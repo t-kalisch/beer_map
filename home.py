@@ -15,9 +15,9 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 
 df = conn.read(ttl=0)
 st.write(df)
-print(df)
 
-
+df = df.dropna()
+st.write(df)
 # Print results
 st.map(data = df)
 

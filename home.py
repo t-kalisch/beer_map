@@ -16,7 +16,7 @@ import plotly.express as px
 conn = st.connection("gsheets", type=GSheetsConnection)
 
 df = conn.read(ttl="1m")
-st.write(df)
+#st.write(df)
 df = df.dropna()
 st.write(df)
 # Print results

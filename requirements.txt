@@ -6,3 +6,4 @@ geopy
 pandasql
 git+https://github.com/streamlit/gsheets-connection
 plotly.express
+folium

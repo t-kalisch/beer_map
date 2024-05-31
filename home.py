@@ -12,7 +12,7 @@ import folium
 from streamlit_folium import st_folium
 
 import plotly.express as px
-
+set_page_config(layout="wide")
 
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)

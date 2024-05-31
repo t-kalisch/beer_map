@@ -9,7 +9,7 @@ from streamlit_gsheets import GSheetsConnection
 from geopy.geocoders import Nominatim
 from geopy.extra.rate_limiter import RateLimiter
 import folium
-import stremlit_folium
+from streamlit_folium import st_folium
 
 import plotly.express as px
 

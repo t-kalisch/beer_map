@@ -9,7 +9,7 @@ from streamlit_gsheets import GSheetsConnection
 from geopy.geocoders import Nominatim
 from geopy.extra.rate_limiter import RateLimiter
 import folium
-from stremlit_folium import st_folium
+import stremlit_folium
 
 import plotly.express as px
 
@@ -50,15 +50,15 @@ if input:
   conn.update(data=df)
   #st.cache_data.clear()
 
-fig = px.scatter_geo(
-    data_frame=df,
-    #color="color_column",
-    lon="lon",
-    lat="lat",
-    #projection="natural earth",
-    #hover_name="hover_column",
-    size="size",  # <-- Set the column name for size
-    height=800,
-)
-
-st.plotly_chart(fig, use_container_width=True)
+#fig = px.scatter_geo(
+#    data_frame=df,
+#    #color="color_column",
+#    lon="lon",
+#    lat="lat",
+#    #projection="natural earth",
+#    #hover_name="hover_column",
+#    size="size",  # <-- Set the column name for size
+#    height=800,
+#)
+#
+#st.plotly_chart(fig, use_container_width=True)

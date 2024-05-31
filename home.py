@@ -12,7 +12,7 @@ import folium
 from streamlit_folium import st_folium
 
 import plotly.express as px
-set_page_config(layout="wide")
+st.set_page_config(layout="wide")
 
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
@@ -31,9 +31,10 @@ for i in range(0,len(df)):
       location=[df.iloc[i]['lat'], df.iloc[i]['lon']],
       popup=df.iloc[i]['Bier'],
       radius=float(df.iloc[i]['size']),
-      color='#69b3a2',
+      color='#000000',
       fill=True,
-      fill_color='#69b3a2'
+      fill_color='#69b3a2',
+      fill_opacity=0.5
    ).add_to(n)
 st_data = st_folium(n, use_container_width=True)
 

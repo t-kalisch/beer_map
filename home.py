@@ -29,17 +29,17 @@ m = folium.Map(location=[45.5236, -122.6750])
 st_data = st_folium(m, use_container_width=True)
 
 
-#n = folium.Map(location=[20,0], tiles="OpenStreetMap", zoom_start=3)
-#for i in range(0,len(df)):
-#   folium.CircleMarker(
-#      location=[df.iloc[i]['lat'], df.iloc[i]['lon']],
-#      popup=df.iloc[i]['name'],
-#      radius=float(df.iloc[i]['value']),
-#      color='#69b3a2',
-#      fill=True,
-#      fill_color='#69b3a2'
-#   ).add_to(n)
-#st_data = st_folium(n, use_container_width=True)
+n = folium.Map(location=[20,0], tiles="OpenStreetMap", zoom_start=3)
+for i in range(0,len(df)):
+   folium.CircleMarker(
+      location=[df.iloc[i]['lat'], df.iloc[i]['lon']],
+      popup=df.iloc[i]['name'],
+      radius=float(df.iloc[i]['value']),
+      color='#69b3a2',
+      fill=True,
+      fill_color='#69b3a2'
+   ).add_to(n)
+st_data = st_folium(n, use_container_width=True)
 
 #streamlit map
 st.map(data = df, use_container_width=True)

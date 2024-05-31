@@ -27,10 +27,10 @@ st.write(df)
 #folium map
 n = folium.Map(location=[20,0], tiles="OpenStreetMap", zoom_start=3)
 for i in range(0,len(df)):
-   folium.CircleMarker(
+   folium.Circle(
       location=[df.iloc[i]['lat'], df.iloc[i]['lon']],
       #popup=df.iloc[i]['Bier'],
-      radius=0.5*float(df.iloc[i]['size']),
+      radius=100*float(df.iloc[i]['size']),
       color='#000000',
       fill=True,
       opacity=0.1,

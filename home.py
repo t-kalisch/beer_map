@@ -25,10 +25,6 @@ st.write(df)
 
 
 #folium map
-m = folium.Map(location=[45.5236, -122.6750])
-st_data = st_folium(m, use_container_width=True)
-
-
 n = folium.Map(location=[20,0], tiles="OpenStreetMap", zoom_start=3)
 for i in range(0,len(df)):
    folium.CircleMarker(

@@ -7,3 +7,4 @@ pandasql
 git+https://github.com/streamlit/gsheets-connection
 plotly.express
 folium
+streamlit_folium

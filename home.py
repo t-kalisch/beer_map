@@ -29,12 +29,12 @@ n = folium.Map(location=[20,0], tiles="OpenStreetMap", zoom_start=3)
 for i in range(0,len(df)):
    folium.Circle(
       location=[df.iloc[i]['lat'], df.iloc[i]['lon']],
-      #popup=df.iloc[i]['Bier'],
+      popup=df.iloc[i]['Bier'],
       radius=100*float(df.iloc[i]['size']),
       color='#000000',
       fill=True,
       opacity=1,
-      fill_opacity=0.2,
+      fill_opacity=0.0,
       fill_color='#fcdb6f',
       
    ).add_to(n)

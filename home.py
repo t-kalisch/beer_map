@@ -8,6 +8,7 @@ from streamlit_gsheets import GSheetsConnection
 
 from geopy.geocoders import Nominatim
 from geopy.extra.rate_limiter import RateLimiter
+import folium
 
 import plotly.express as px
 
@@ -23,6 +24,13 @@ st.write(df)
 st.map(data = df, use_container_width=True)
 
 #def check_in(street, city, country, df, conn):
+
+
+import folium
+
+m = folium.Map(location=[45.5236, -122.6750])
+m
+
 
 
 street = st.sidebar.text_input("Street")

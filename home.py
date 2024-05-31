@@ -33,9 +33,9 @@ for i in range(0,len(df)):
       radius=0.5*float(df.iloc[i]['size']),
       color='#000000',
       fill=True,
-      opacity=0.8,
+      opacity=0.1,
       fill_opacity=0.5,
-      fill_color='#69b3a2',
+      fill_color='#fcdb6f',
       
    ).add_to(n)
 st_data = st_folium(n, use_container_width=True)

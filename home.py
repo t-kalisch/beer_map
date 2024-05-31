@@ -28,7 +28,7 @@ st.write(df)
 
 
 m = folium.Map(location=[45.5236, -122.6750])
-m
+st_data = st_folium(m, use_container_width=True)
 
 st.map(data = df, use_container_width=True)
 

@@ -24,12 +24,24 @@ st.write(df)
 # Print results
 
 
-#def check_in(street, city, country, df, conn):
-
-
+#folium map
 m = folium.Map(location=[45.5236, -122.6750])
-st_data = st_folium(m, use_container_width=True)
+st_data = st_folium(m, width=725)
 
+
+n = folium.Map(location=[20,0], tiles="OpenStreetMap", zoom_start=3)
+for i in range(0,len(df)):
+   folium.CircleMarker(
+      location=[df.iloc[i]['lat'], df.iloc[i]['lon']],
+      popup=df.iloc[i]['name'],
+      radius=float(df.iloc[i]['value']),
+      color='#69b3a2',
+      fill=True,
+      fill_color='#69b3a2'
+   ).add_to(n)
+st_data = st_folium(n, width=725)
+
+#streamlit map
 st.map(data = df, use_container_width=True)
 
 street = st.sidebar.text_input("Street")

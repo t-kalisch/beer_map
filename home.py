@@ -33,8 +33,8 @@ for i in range(0,len(df)):
       radius=100*float(df.iloc[i]['size']),
       color='#000000',
       fill=True,
-      opacity=0.1,
-      fill_opacity=0.1,
+      opacity=1,
+      fill_opacity=0.6,
       fill_color='#fcdb6f',
       
    ).add_to(n)

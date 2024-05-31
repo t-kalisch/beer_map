@@ -21,7 +21,7 @@ df = conn.read(ttl="1m")
 df = df.dropna()
 st.write(df)
 # Print results
-st.map(data = df, use_container_width=True)
+
 
 #def check_in(street, city, country, df, conn):
 
@@ -31,7 +31,7 @@ import folium
 m = folium.Map(location=[45.5236, -122.6750])
 m
 
-
+st.map(data = df, use_container_width=True)
 
 street = st.sidebar.text_input("Street")
 city = st.sidebar.text_input("City")

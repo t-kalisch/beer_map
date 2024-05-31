@@ -34,7 +34,7 @@ for i in range(0,len(df)):
       color='#000000',
       fill=True,
       opacity=0.1,
-      fill_opacity=0.5,
+      fill_opacity=0.1,
       fill_color='#fcdb6f',
       
    ).add_to(n)
